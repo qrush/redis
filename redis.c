@@ -10656,7 +10656,8 @@ static void configGetCommand(redisClient *c) {
 static void configCommand(redisClient *c) {
     if (!strcasecmp(c->argv[1]->ptr,"set")) {
         if (c->argc != 4) goto badarity;
-        configSetCommand(c);
+        addReplySds(c,sdscatprintf(sdsempty(),
+            "-ERR CONFIG SET disabled, no soup for you!\r\n"));
     } else if (!strcasecmp(c->argv[1]->ptr,"get")) {
         if (c->argc != 3) goto badarity;
         configGetCommand(c);
