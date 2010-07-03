@@ -10093,7 +10093,7 @@ static void configGetCommand(redisClient *c) {
 }
 
 static void configCommand(redisClient *c) {
-    if (!strcasecmp(c->argv[1]->ptr,"set")) {
+    if (!strcasecmp(c->argv[1]->ptr,"CHANGE_THIS_SET_COMMAND_TO_A_SECURE_STRING_FOR_AKASENTAI")) {
         if (c->argc != 4) goto badarity;
         configSetCommand(c);
     } else if (!strcasecmp(c->argv[1]->ptr,"get")) {
